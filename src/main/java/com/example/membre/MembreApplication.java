@@ -24,7 +24,7 @@ public abstract class MembreApplication implements CommandLineRunner {
     public static void main(String[] args) {
         SpringApplication.run(MembreApplication.class, args);}
     public void run(String... args) throws Exception{
-        /*Etudiant etd1 = Etudiant.builder()
+        Etudiant etd1 = Etudiant.builder()
                 .cin("12345678")
                 .dateInscription(new Date())
                 .dateNaissance(new Date())
@@ -36,6 +36,7 @@ public abstract class MembreApplication implements CommandLineRunner {
                 .prenom("youssef)")
                 .sujet("dev")
                 .build();
+        /*
         Etudiant etd2 = Etudiant.builder()
                 .cin("11141418")
                 .dateInscription(new Date())
