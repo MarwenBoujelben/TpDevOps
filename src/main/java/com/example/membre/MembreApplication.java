@@ -36,7 +36,7 @@ public abstract class MembreApplication implements CommandLineRunner {
                 .prenom("youssef)")
                 .sujet("dev")
                 .build();
-        /*
+
         Etudiant etd2 = Etudiant.builder()
                 .cin("11141418")
                 .dateInscription(new Date())
@@ -68,8 +68,6 @@ public abstract class MembreApplication implements CommandLineRunner {
                 .nom("enseignant3")
                 .prenom("ens)")
                 .grade("enseignant")
-                .build();*/
-
-
+                .build();
     }
 }
