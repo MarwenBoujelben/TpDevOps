@@ -10,12 +10,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
-public class MembreService implements IMembreService.IMemberService {
+public class MembreService implements IMembreService {
     @Autowired
     MembreRepository membreRepository;
+    @Autowired
     EtudiantRepository etudiantRepository;
+    @Autowired
+
     EnseignantChercheurRepository enseignantChercheurRepository;
     public Membre addMember(Membre m) {
         membreRepository.save(m);
@@ -25,7 +29,7 @@ public class MembreService implements IMembreService.IMemberService {
         membreRepository.deleteById(id);
     }
     public Membre updateMember(Membre m) {
-        return membreRepository.saveAndFlush(m);
+        return membreRepository.save(m);
     }
     public Membre findMember(Long id) {
         Membre m= (Membre)membreRepository.findById(id).get();
@@ -47,4 +51,16 @@ public class MembreService implements IMembreService.IMemberService {
     }
     public List<EnseignantChercheur> findByEtablissement(String etablissement) {
         return enseignantChercheurRepository.findByEtablissement(etablissement);
-    }}
+    }
+    public void affecterEtudiantToEnseignant(Long id_etd,Long id_ens){
+        EnseignantChercheur ens=enseignantChercheurRepository.findById(id_ens).get();
+        Etudiant etd=etudiantRepository.findById(id_etd).get();
+        etd.setEncadrant(ens);
+        etudiantRepository.save(etd);
+    }
+    public List<Etudiant> findEtudiantsByEncadrant(EnseignantChercheur enseignantChercheur){
+        List<Etudiant> etds=etudiantRepository.findByEncadrant(enseignantChercheur);
+        return etds;
+    }
+
+}

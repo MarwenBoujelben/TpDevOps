@@ -1,5 +1,6 @@
 package com.example.membre.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
@@ -14,6 +15,7 @@ import java.util.Date;
 @NoArgsConstructor
 
 public class EnseignantChercheur extends Membre{
+    @JsonIgnore
     @OneToMany(mappedBy="encadrant")
     Collection<Etudiant> listEtudiants;
     @NonNull

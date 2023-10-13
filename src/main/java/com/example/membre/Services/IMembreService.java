@@ -23,6 +23,8 @@ public interface IMembreService {
         //recherche spécifique des enseignants
         public List<EnseignantChercheur> findByGrade(String grade);
         public List<EnseignantChercheur> findByEtablissement(String etablissement);
-//other ...
+        public void affecterEtudiantToEnseignant(Long id_etd,Long id_ens);
+        public List<Etudiant> findEtudiantsByEncadrant(EnseignantChercheur enseignantChercheur);
+
     }
 }
